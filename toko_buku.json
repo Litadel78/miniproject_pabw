@@ -1,7 +1,7 @@
 {
-    "nama_toko": "Bookstore XYZ",
-    "pengarang": "John Doe",
-    "alamat": "123 Main Street",
+    "nama_toko": "Bookstore Bojongsantos",
+    "pengarang": "John Supratman",
+    "alamat": "123 Braga Street, Bandung",
     "koleksi_buku": [
         {
             "judul": "Avangers",
