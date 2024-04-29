@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informasi Toko Buku</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <script>
+        // Fungsi untuk mengambil data dari file JSON
+        function getData() {
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', 'toko_buku.json', true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    const data = JSON.parse(xhr.responseText);
+                    displayData(data);
+                }
+            };
+            xhr.send();
+        }
+
+        // Fungsi untuk menampilkan data ke dalam HTML
+        function displayData(data) {
+            const tokoDiv = document.getElementById('toko-info');
+            tokoDiv.innerHTML = `
+                <h2>${data.nama_toko}</h2>
+                <p>Pengarang: ${data.pengarang}</p>
+                <p>Alamat: ${data.alamat}</p>
+            `;
+
+            const bukuTable = document.getElementById('buku-table');
+            let tableHtml = '<table><tr><th>Judul Buku</th><th>Kategori</th></tr>';
+            data.koleksi_buku.forEach(buku => {
+                tableHtml += `<tr><td>${buku.judul}</td><td>${buku.kategori}</td></tr>`;
+            });
+            tableHtml += '</table>';
+            bukuTable.innerHTML = tableHtml;
+        }
+    </script>
+</head>
+<body onload="getData()">
+    <div id="toko-info"></div>
+    <div id="buku-table"></div>
+</body>
+</html>
