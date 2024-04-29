@@ -1,6 +1,20 @@
 {
-    "to": "Tove",
-    "from":"Jani",
-    "heading":"reminder",
-    "body":"Don't forget me this weekend!"
+    "nama_toko": "Bookstore XYZ",
+    "pengarang": "John Doe",
+    "alamat": "123 Main Street",
+    "koleksi_buku": [
+        {
+            "judul": "Avangers",
+            "kategori": "Fiction"
+        },
+        {
+            "judul": "Thomas Alva Edison",
+            "kategori": "Non-Fiction"
+        },
+        {
+            "judul": "My Naughty Boy",
+            "kategori": "Comedy Romance"
+        }
+
+    ]
 }
